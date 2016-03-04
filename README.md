@@ -26,3 +26,7 @@ WebClient allows simple asynchronous requests to api's
     
     //  requestAsynch(String url, String method, List<Pair<String, String>> postData, int requestID)
     client.requestAsynch("http://your-api.com", WebClient.GET, null, 0);
+    
+# Sample
+
+https://github.com/omaflak/WebClient/blob/master/app/src/main/java/me/aflak/webclient/MainActivity.java
