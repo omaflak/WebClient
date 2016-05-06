@@ -3,11 +3,9 @@ package me.aflak.libraries;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Pair;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import me.aflak.webclient.WebClient;
 
@@ -26,14 +24,13 @@ public class MainActivity extends Activity implements WebClient.OnRequestListene
         client.setOnRequestListener(this);
 
         /*      POST REQUEST    */
-        List<Pair<String, String>> post = new ArrayList<>();
-        post.add(new Pair<>("field1", "value1"));
-        post.add(new Pair<>("field2", "value2"));
-        client.requestAsynch("http://your-api.com", WebClient.POST, post, 1);
+        WebClient.Pair p = new WebClient.Pair("field1", "value1");
+        WebClient.Pair p2 = new WebClient.Pair("field2", "value2");
+        client.requestAsync("http://your-api.com", WebClient.POST, Arrays.asList(p,p2), 1);
 
         /*      GET REQUEST     */
         // You should build the URL with an Uri.Builder
-        client.requestAsynch("http://your-api.com", WebClient.GET, null, 2);
+        client.requestAsync("http://your-api.com", WebClient.GET, null, 2);
     }
 
     @Override

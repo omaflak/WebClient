@@ -24,21 +24,21 @@ public class WebClient {
     public static final String GET="GET";
     public static final String POST="POST";
 
-    public void requestAsynch(String url, String method, List<Pair<String, String>> postData, int requestID) {
+    public void requestAsync(String url, String method, List<Pair> postData, int requestID) {
         new REQUEST(url, method, postData, requestID).start();
     }
 
-    public void requestAsynch(String url, String method, List<Pair<String, String>> postData) {
+    public void requestAsync(String url, String method, List<Pair> postData) {
         new REQUEST(url, method, postData, -1).start();
     }
 
     private class REQUEST extends Thread implements Runnable{
         private String strURL;
         private String method;
-        private List<Pair<String, String>> postData;
+        private List<Pair> postData;
         private int requestID;
 
-        public REQUEST(String url, String method, List<Pair<String, String>> postData, int requestID){
+        public REQUEST(String url, String method, List<Pair> postData, int requestID){
             this.strURL=url;
             this.method=method;
             this.postData=postData;
@@ -90,7 +90,7 @@ public class WebClient {
         }
     }
 
-    private String getQuery(List<Pair<String, String>> params) throws UnsupportedEncodingException
+    private String getQuery(List<Pair> params) throws UnsupportedEncodingException
     {
         StringBuilder result = new StringBuilder();
         boolean first = true;
@@ -102,12 +102,22 @@ public class WebClient {
             else
                 result.append("&");
 
-            result.append(URLEncoder.encode(pair.first.toString(), "UTF-8"));
+            result.append(URLEncoder.encode(pair.first, "UTF-8"));
             result.append("=");
-            result.append(URLEncoder.encode(pair.second.toString(), "UTF-8"));
+            result.append(URLEncoder.encode(pair.second, "UTF-8"));
         }
 
         return result.toString();
+    }
+
+    public static class Pair{
+        public String first;
+        public String second;
+
+        public Pair(String first, String second){
+            this.first=first;
+            this.second=second;
+        }
     }
 
     public interface OnRequestListener{
