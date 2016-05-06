@@ -1,13 +1,15 @@
 # WebClient
 WebClient allows simple asynchronous requests to api's
 
-# HOW
+# Install
 
-1) Don't forget to add the INTERNET permission in your Manifest file:
+Add to your dependencies:
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    compile 'me.aflak.libraries:webclient:1.0'
 
-2) Initilize the object and add the listener
+# Use
+
+1) Initilize the object and add the listener
 
     WebClient client = new WebClient();
         client.setOnRequestListener(new OnRequestListener() {
@@ -22,7 +24,7 @@ WebClient allows simple asynchronous requests to api's
             }
     });
 
-3) Make the request
+2) Make the request
     
     //  requestAsynch(String url, String method, List<Pair<String, String>> postData, int requestID)
     client.requestAsynch("http://your-api.com", WebClient.GET, null, 0);
