@@ -11,7 +11,7 @@ import java.util.List;
 
 import me.aflak.webclient.WebClient;
 
-public class MainActivity extends Activity implements WebClient.OnRequestLoadedListener{
+public class MainActivity extends Activity implements WebClient.OnRequestListener{
     private TextView text;
 
     @Override
@@ -23,7 +23,7 @@ public class MainActivity extends Activity implements WebClient.OnRequestLoadedL
         text.setMovementMethod(new ScrollingMovementMethod());
 
         WebClient client = new WebClient();
-        client.setOnRequestLoadedListener(this);
+        client.setOnRequestListener(this);
 
         /*      POST REQUEST    */
         List<Pair<String, String>> post = new ArrayList<>();
@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements WebClient.OnRequestLoadedL
     }
 
     @Override
-    public void OnRequestLoaded(String response, int requestID) {
+    public void onRequest(String response, int requestID) {
         if(requestID==1){
             System.out.println("POST response: "+response);
         }
@@ -47,7 +47,7 @@ public class MainActivity extends Activity implements WebClient.OnRequestLoadedL
     }
 
     @Override
-    public void OnErrorOccurred(int error_code, String message) {
+    public void onError(int error_code, String message) {
         System.out.println("Error "+error_code+": "+message);
     }
 }

@@ -2,18 +2,18 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'bluetooth'
+    bintrayName = 'web-client'
 
     publishedGroupId = 'me.aflak.libraries'
-    libraryName = 'Bluetooth'
-    artifact = 'bluetooth'
+    libraryName = 'WebClient'
+    artifact = 'webclient'
 
-    libraryDescription = 'Android library that allows you to communicate simply using a bluetooth connection.'
+    libraryDescription = 'WebClient allows simple asynchronous http requests and implements listeners.'
 
-    siteUrl = 'https://github.com/omaflak/Bluetooth-Library'
-    gitUrl = 'https://github.com/omaflak/Bluetooth-Library.git'
+    siteUrl = 'https://github.com/omaflak/WebClient'
+    gitUrl = 'https://github.com/omaflak/WebClient.git'
 
-    libraryVersion = '1.2'
+    libraryVersion = '1.0'
 
     developerId = 'omaflak'
     developerName = 'Omar Aflak'
