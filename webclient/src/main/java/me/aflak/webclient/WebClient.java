@@ -28,10 +28,6 @@ public class WebClient {
         new REQUEST(url, method, postData, requestID).start();
     }
 
-    public void requestAsync(String url, String method, List<Pair> postData) {
-        new REQUEST(url, method, postData, -1).start();
-    }
-
     private class REQUEST extends Thread implements Runnable{
         private String strURL;
         private String method;

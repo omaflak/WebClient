@@ -8,8 +8,10 @@ import android.widget.TextView;
 import java.util.Arrays;
 
 import me.aflak.webclient.WebClient;
+import me.aflak.webclient.WebClient.OnRequestListener;
+import me.aflak.webclient.WebClient.Pair;
 
-public class MainActivity extends Activity implements WebClient.OnRequestListener{
+public class MainActivity extends Activity implements OnRequestListener{
     private TextView text;
 
     @Override
@@ -24,9 +26,9 @@ public class MainActivity extends Activity implements WebClient.OnRequestListene
         client.setOnRequestListener(this);
 
         /*      POST REQUEST    */
-        WebClient.Pair p = new WebClient.Pair("field1", "value1");
-        WebClient.Pair p2 = new WebClient.Pair("field2", "value2");
-        client.requestAsync("http://your-api.com", WebClient.POST, Arrays.asList(p,p2), 1);
+        Pair p = new Pair("field1", "value1");
+        Pair p2 = new Pair("field2", "value2");
+        client.requestAsync("http://your-api.com", WebClient.POST, Arrays.asList(p, p2), 1);
 
         /*      GET REQUEST     */
         // You should build the URL with an Uri.Builder
