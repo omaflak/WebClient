@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Omar on 01/12/2015.
  */
 public class WebClient {
-    private OnRequestLoadedListener listener=null;
+    private OnRequestListener listener=null;
     public static final String GET="GET";
     public static final String POST="POST";
 
@@ -77,15 +77,15 @@ public class WebClient {
                     }
 
                     if(listener!=null)
-                        listener.OnRequestLoaded(total.toString(), requestID);
+                        listener.onRequest(total.toString(), requestID);
                 }
                 else{
                     if(listener!=null)
-                        listener.OnErrorOccurred(httpConn.getResponseCode(), httpConn.getResponseMessage());
+                        listener.onError(httpConn.getResponseCode(), httpConn.getResponseMessage());
                 }
             } catch (IOException e) {
                 if(listener!=null)
-                    listener.OnErrorOccurred(-1, e.getMessage());
+                    listener.onError(-1, e.getMessage());
             }
         }
     }
@@ -110,13 +110,17 @@ public class WebClient {
         return result.toString();
     }
 
-    interface OnRequestLoadedListener{
-        void OnRequestLoaded(String response, int requestID);
-        void OnErrorOccurred(int error_code, String message);
+    public interface OnRequestListener{
+        void onRequest(String response, int requestID);
+        void onError(int error_code, String message);
     }
 
-    public void setOnRequestLoadedListener(OnRequestLoadedListener listener){
+    public void setOnRequestListener(OnRequestListener listener){
         this.listener=listener;
+    }
+
+    public void removeRequestListener(){
+        this.listener=null;
     }
 
 }

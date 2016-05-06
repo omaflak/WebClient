@@ -1,6 +1,6 @@
-package me.aflak.webclient;
+package me.aflak.libraries;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Pair;
@@ -9,9 +9,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.aflak.webclient.WebClient.*;
+import me.aflak.webclient.WebClient;
 
-public class MainActivity extends AppCompatActivity implements OnRequestLoadedListener{
+public class MainActivity extends Activity implements WebClient.OnRequestLoadedListener{
     private TextView text;
 
     @Override
