@@ -10,14 +10,14 @@ WebClient allows simple asynchronous requests to api's
 2) Initilize the object and add the listener
 
     WebClient client = new WebClient();
-        client.setOnRequestLoadedListener(new OnRequestLoadedListener() {
+        client.setOnRequestListener(new OnRequestListener() {
             @Override
-            public void OnRequestLoaded(String response, int requestID) {
+            public void onRequest(String response, int requestID) {
                 Log.e(TAG, response);
             }
 
             @Override
-            public void OnErrorOccurred(int error_code, String message) {
+            public void onError(int error_code, String message) {
                 Log.e(TAG, message);
             }
     });
