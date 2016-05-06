@@ -38,7 +38,12 @@ public class MainActivity extends Activity implements WebClient.OnRequestLoadedL
 
     @Override
     public void OnRequestLoaded(String response, int requestID) {
-        System.out.println("Response: "+response);
+        if(requestID==1){
+            System.out.println("POST response: "+response);
+        }
+        else if(requestID==2){
+            System.out.println("GET response: "+response);
+        }
     }
 
     @Override
