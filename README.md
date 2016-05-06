@@ -26,8 +26,8 @@ Add to your dependencies:
 
 2) Make the request
     
-    //  requestAsynch(String url, String method, List<Pair<String, String>> postData, int requestID)
-    client.requestAsynch("http://your-api.com", WebClient.GET, null, 0);
+    //  requestAsync(String url, String method, List<Pair<String, String>> postData, int requestID)
+    client.requestAsync("http://your-api.com", WebClient.GET, null, 0);
     
 # Sample
 
