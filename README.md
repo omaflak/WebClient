@@ -31,4 +31,4 @@ Add to your dependencies:
     
 # Sample
 
-https://github.com/omaflak/WebClient/blob/master/app/src/main/java/me/aflak/webclient/MainActivity.java
+https://github.com/omaflak/WebClient/blob/master/app/src/main/java/me/aflak/libraries/MainActivity.java
