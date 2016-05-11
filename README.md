@@ -12,7 +12,7 @@ Add to your dependencies:
 1) Initilize the object and add the listener
 
     WebClient client = new WebClient();
-        client.setOnRequestListener(new OnRequestListener() {
+    client.setOnRequestListener(new OnRequestListener() {
             @Override
             public void onRequest(String response, int requestID) {
                 Log.e(TAG, response);
