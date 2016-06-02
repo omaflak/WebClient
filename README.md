@@ -5,7 +5,7 @@ WebClient allows simple asynchronous requests to api's
 
 Add to your dependencies:
 
-    compile 'me.aflak.libraries:webclient:1.0'
+    compile 'me.aflak.libraries:webclient:1.2'
 
 # Use
 
