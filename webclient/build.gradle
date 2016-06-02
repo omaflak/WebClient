@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/omaflak/WebClient'
     gitUrl = 'https://github.com/omaflak/WebClient.git'
 
-    libraryVersion = '1.1'
+    libraryVersion = '1.2'
 
     developerId = 'omaflak'
     developerName = 'Omar Aflak'
