@@ -14,7 +14,8 @@ Add to your dependencies:
     WebClient client = new WebClient();
     client.setOnRequestListener(new OnRequestListener() {
             @Override
-            public void onRequest(String response, int requestID) {
+            public void onRequest(String response, int requestID, Objects... objects) {
+                String my_string = (String) object[0];
                 Log.e(TAG, response);
             }
 
@@ -26,8 +27,8 @@ Add to your dependencies:
 
 2) Make the request
     
-    //  requestAsync(String url, String method, List<Pair<String, String>> postData, int requestID)
-    client.requestAsync("http://your-api.com", WebClient.GET, null, 0);
+    //  requestAsync(String url, String method, List<Pair<String, String>> postData, int requestID, Object... objects)
+    client.requestAsync("http://your-api.com", WebClient.GET, null, 0, "a string I want to get back when request is done");
     
 # Sample
 
