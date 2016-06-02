@@ -1,7 +1,5 @@
 package me.aflak.webclient;
 
-import android.util.Pair;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -24,8 +22,8 @@ public class WebClient {
     public static final String GET="GET";
     public static final String POST="POST";
 
-    public void requestAsync(String url, String method, List<Pair> postData, int requestID) {
-        new REQUEST(url, method, postData, requestID).start();
+    public void requestAsync(String url, String method, List<Pair> postData, int requestID, Object... objects) {
+        new REQUEST(url, method, postData, requestID, objects).start();
     }
 
     private class REQUEST extends Thread implements Runnable{
@@ -33,12 +31,14 @@ public class WebClient {
         private String method;
         private List<Pair> postData;
         private int requestID;
+        private Object[] objects;
 
-        public REQUEST(String url, String method, List<Pair> postData, int requestID){
+        public REQUEST(String url, String method, List<Pair> postData, int requestID, Object... objects){
             this.strURL=url;
             this.method=method;
             this.postData=postData;
             this.requestID=requestID;
+            this.objects=objects;
         }
 
         public void run(){
@@ -73,7 +73,7 @@ public class WebClient {
                     }
 
                     if(listener!=null)
-                        listener.onRequest(total.toString(), requestID);
+                        listener.onRequest(total.toString(), requestID, objects);
                 }
                 else{
                     if(listener!=null)
@@ -117,7 +117,7 @@ public class WebClient {
     }
 
     public interface OnRequestListener{
-        void onRequest(String response, int requestID);
+        void onRequest(String response, int requestID, Object... objects);
         void onError(int error_code, String message);
     }
 
